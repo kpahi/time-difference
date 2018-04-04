@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+<form action="/compute" method="post" class="someForm" onSubmit="return checkform()">
 <div id="TextBoxesGroup">
-    <form action="/compute" method="post" class="someForm">
+   
         <table>
             <tr>
                 <td>Start </td>
@@ -13,22 +15,25 @@
                 <td><input type="text" name="end" id="end"></td>        
             </tr>      
         </table>
-    </form>
+    
 </div>
 
-<button id="device" > Add another </button>
-    
+<button id="add" > Add another </button>
+<input id="submit" type="submit" value="Submit">
+</form>
+
 <script>
-$("#device").click(function(){
+$("#add").click(function(e){
+    e.preventDefault();
     var counter = 1;
 
     if(counter > 10){
-        alert("only 10 devices are allowed");
+        alert("only 10  are allowed");
         return false;
     }
 
     var newTextBoxDiv = $(document.createElement('div')).attr("id", "TextBoxDiv" + counter)
-    newTextBoxDiv.after().html(' <form action="/compute" method="post" class="someForm"> <table>  <tr>   <td>Start </td>                <td><input type="text" name="start" id="start"></td>         </tr>           <tr>               <td>End </td>               <td><input type="text" name="end" id="end"></td>              </tr>         </table>   </form>');
+    newTextBoxDiv.after().html(' <table>  <tr>   <td>Start </td>                <td><input type="text" name="start" id="start"></td>         </tr>           <tr>               <td>End </td>               <td><input type="text" name="end" id="end"></td>              </tr>         </table>  ');
 
     newTextBoxDiv.appendTo("#TextBoxesGroup");
 
@@ -37,6 +42,29 @@ $("#device").click(function(){
     
 
 });
+
+function checkform(){
+        // var regEx = /^\d{4}-\d{2}-\d{2}\ \d{2}:\d{2}:\d{2}[\+\-]\d{4}$/;
+        var regEx = /^\d{4}-\d{2}-\d{2}$/;
+        var story_date;  
+
+        debugger;
+        story_date = $('#p_date').val();
+
+        $("input").each(function(){
+            console.log((this).val());
+
+        });
+        
+
+        if (story_date.match(regEx)==null) {
+            alert('Correct the Date with TimeZone YYYY-MM-DD like 2018-02-06');
+            return false;
+        }
+        return false;
+    }  
+
+
 
 </script>
     
