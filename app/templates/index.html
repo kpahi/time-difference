@@ -1,70 +1,116 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="container">
 
-<form action="/compute" method="post" class="someForm" onSubmit="return checkform()">
-<div id="TextBoxesGroup">
-   
-        <table>
-            <tr>
-                <td>Start </td>
-                <td><input type="text" name="start" id="start"></td>        
-            </tr>
-            <tr>
-                <td>End </td>
-                <td><input type="text" name="end" id="end"></td>        
-            </tr>      
-        </table>
-    
+
+
+
+    <form action="/compute" method="post" class="someForm">
+    <div id="TextBoxesGroup">
+        <div class="row" id="initial_load">
+            <div class="col-md-4">     
+                <table class="data_table" border="1" cellpadding="10px" cellspacing="5px" frame="box">
+                    <thead> 
+                    <tr>Device #<span class="number"> 1</span></tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td> Start DateTime </td>
+                        <td><input type="text" name="device_start" id="start" class="test" ></td>                
+                            
+                    </tr>
+                    <tr>
+                        <td> End DateTime </td>
+                        <td><input type="text" name="device_end" id="end" class="test"></td>
+                    </tr>  
+                    </tbody>    
+                </table>
+                <br>
+            </div>
+
+            <div class="col-md-6">      
+                    <table class="data_table" border="1" cellpadding="10px" cellspacing="5px" frame="box">
+                        <thead> <tr>StopWatch Time</tr></thead>
+                        <tbody>
+                        <tr>                                        
+                            <td> StopWatch Start DateTime </td>
+                            <td><input type="text" name="stop_watch_start" id="start" class="test"></td>        
+                        </tr>
+                        <tr>                            
+                            <td> StopWatch End DateTime </td>
+                            <td><input type="text" name="stop_watch_end" id="end" class="test"></td>        
+                        </tr>   
+                        </tbody>   
+                    </table>
+                    <br>
+            </div>         
+            
+        </div>
+    </div>
+    <br> 
+
+    <button id="add" > Add another Device </button>
+    <input id="submit" type="submit" value="Calculate Time Difference">
+    </form>
+
 </div>
 
-<button id="add" > Add another </button>
-<input id="submit" type="submit" value="Submit">
-</form>
-
 <script>
-$("#add").click(function(e){
-    e.preventDefault();
-    var counter = 1;
 
-    if(counter > 10){
-        alert("only 10  are allowed");
-        return false;
-    }
+$(document).ready(function() {
+    var counter = 2;
 
-    var newTextBoxDiv = $(document.createElement('div')).attr("id", "TextBoxDiv" + counter)
-    newTextBoxDiv.after().html(' <table>  <tr>   <td>Start </td>                <td><input type="text" name="start" id="start"></td>         </tr>           <tr>               <td>End </td>               <td><input type="text" name="end" id="end"></td>              </tr>         </table>  ');
+    $("#add").click(function(e){
+        e.preventDefault();
+        
 
-    newTextBoxDiv.appendTo("#TextBoxesGroup");
+        if(counter > 5){
+            alert("only 5 are allowed");
+            return false;
+        }
+        
+        var insert_row = $('#initial_load');
+        var newTextBoxDiv = $(document.createElement('div')).addClass("row");
+        
+        newTextBoxDiv.after().html(insert_row.html());
+        
+        newTextBoxDiv.appendTo("#TextBoxesGroup");
 
-    counter++;
+        $('.number').html(counter);
+
+        counter++;
+
+        
+
+    });
 
     
 
 });
+</script>
+<script>
+    $('form').submit(function(e){
 
-function checkform(){
-        // var regEx = /^\d{4}-\d{2}-\d{2}\ \d{2}:\d{2}:\d{2}[\+\-]\d{4}$/;
-        var regEx = /^\d{4}-\d{2}-\d{2}$/;
-        var story_date;  
+    //function checkform(){        
+        var regEx = /^\d{4}-\d{2}-\d{2}\ \d{2}:\d{2}:\d{2}$/;
+        //var regEx = /^\d{4}-\d{2}-\d{2}$/;
+        var input_value;  
+        $('.test').each(function(){
+            input_value = $(this).val()
+            console.log(input_value);
 
-        debugger;
-        story_date = $('#p_date').val();
-
-        $("input").each(function(){
-            console.log((this).val());
-
-        });
-        
-
-        if (story_date.match(regEx)==null) {
-            alert('Correct the Date with TimeZone YYYY-MM-DD like 2018-02-06');
-            return false;
-        }
-        return false;
-    }  
-
-
+            //debugger;
+            if (!regEx.test(input_value)) {
+                alert('Correct the Date Time value YYYY-MM-DD like 2018-02-06 14:10:10');
+                e.preventDefault();
+                return false;
+            };
+            
+        });   
+                
+//    };
+});
 
 </script>
     
