@@ -1,0 +1,37 @@
+<html>  
+     
+     <head>
+ 
+         <!-- Latest compiled and minified CSS -->
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     
+         <!-- Latest compiled and minified CSS -->
+         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
+         
+     
+         <!-- jQuery library -->
+         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+     
+          <!-- jQuery library -->
+          <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+     
+           <!-- jQuery library -->
+         <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+       {% if title %}
+       <title>{{ title }}</title>
+       {% else %}
+       <title> TEST </title>
+       {% endif %}
+     </head>
+ 
+     <body>       
+             <a >Home</a>
+          
+         </div>
+         <hr>         
+         {% block content %}
+         
+         
+         {% endblock %}
+     </body>
+ </html>

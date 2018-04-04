@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="TextBoxesGroup">
+    <form action="/compute" method="post" class="someForm">
+        <table>
+            <tr>
+                <td>Start </td>
+                <td><input type="text" name="start" id="start"></td>        
+            </tr>
+            <tr>
+                <td>End </td>
+                <td><input type="text" name="end" id="end"></td>        
+            </tr>      
+        </table>
+    </form>
+</div>
+
+<button id="device" > Add another </button>
+    
+<script>
+$("#device").click(function(){
+    var counter = 1;
+
+    if(counter > 10){
+        alert("only 10 devices are allowed");
+        return false;
+    }
+
+    var newTextBoxDiv = $(document.createElement('div')).attr("id", "TextBoxDiv" + counter)
+    newTextBoxDiv.after().html(' <form action="/compute" method="post" class="someForm"> <table>  <tr>   <td>Start </td>                <td><input type="text" name="start" id="start"></td>         </tr>           <tr>               <td>End </td>               <td><input type="text" name="end" id="end"></td>              </tr>         </table>   </form>');
+
+    newTextBoxDiv.appendTo("#TextBoxesGroup");
+
+    counter++;
+
+    
+
+});
+
+</script>
+    
+    
+{% endblock %}
