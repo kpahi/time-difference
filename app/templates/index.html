@@ -59,14 +59,17 @@
 <script>
 
 $(document).ready(function() {
-    $(function () {
+
+    function populate() {
         // moment().format('YYYY-MM-DD HH:mm:ss');
         $('.datetimepicker4').each(function(){
             $(this).datetimepicker({
                 format : "YYYY-MM-DD HH:mm:ss",
             });
         });       
-    });
+    }
+
+    populate(); 
 
     var counter = 2;
 
@@ -89,6 +92,8 @@ $(document).ready(function() {
         $('.number').html(counter);
 
         counter++;
+
+        populate(); 
 
         
 
