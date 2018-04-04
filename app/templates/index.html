@@ -17,12 +17,12 @@
                     <tbody>
                     <tr>
                         <td> Start DateTime </td>
-                        <td><input type="text" name="device_start" id="start" class="test" ></td>                
+                        <td><input type="text" name="device_start" id='start' class="test datetimepicker4" ></td>                
                             
                     </tr>
                     <tr>
                         <td> End DateTime </td>
-                        <td><input type="text" name="device_end" id="end" class="test"></td>
+                        <td><input type="text" name="device_end" id="end" class="test datetimepicker4"></td>
                     </tr>  
                     </tbody>    
                 </table>
@@ -35,11 +35,11 @@
                         <tbody>
                         <tr>                                        
                             <td> StopWatch Start DateTime </td>
-                            <td><input type="text" name="stop_watch_start" id="start" class="test"></td>        
+                            <td><input type="text" name="stop_watch_start" id="start" class="test datetimepicker4"></td>        
                         </tr>
                         <tr>                            
                             <td> StopWatch End DateTime </td>
-                            <td><input type="text" name="stop_watch_end" id="end" class="test"></td>        
+                            <td><input type="text" name="stop_watch_end" id="end" class="test datetimepicker4"></td>        
                         </tr>   
                         </tbody>   
                     </table>
@@ -59,6 +59,15 @@
 <script>
 
 $(document).ready(function() {
+    $(function () {
+        // moment().format('YYYY-MM-DD HH:mm:ss');
+        $('.datetimepicker4').each(function(){
+            $(this).datetimepicker({
+                format : "YYYY-MM-DD HH:mm:ss",
+            });
+        });       
+    });
+
     var counter = 2;
 
     $("#add").click(function(e){

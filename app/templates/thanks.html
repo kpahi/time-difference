@@ -1,6 +1,82 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1> Thanks </h1>
+<div class="container">
+
+
+    <h1> Calculation: </h1>
+    {% for d in diff %}
+        <div class="row">
+            <div class="col-md-4">     
+                <table class="data_table" border="1" cellpadding="10px" cellspacing="5px" frame="box">
+                    <thead> 
+                    <tr>{{ d.name }}</tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td> Start DateTime </td>
+                        <td> {{ d.d_start }} </td>                
+                            
+                    </tr>
+                    <tr>
+                        <td> End DateTime </td>
+                        <td> {{ d.d_end }} </td>
+                    </tr>  
+                    </tbody>    
+                </table>
+                <br>
+            </div>
+
+            <div class="col-md-5">      
+                    <table class="data_table" border="1" cellpadding="10px" cellspacing="5px" frame="box">
+                        <thead> <tr>StopWatch Time</tr></thead>
+                        <tbody>
+                        <tr>                                        
+                            <td> StopWatch Start DateTime </td>
+                            <td>{{ d.s_start }}</td>        
+                        </tr>
+                        <tr>                            
+                            <td> StopWatch End DateTime </td>
+                            <td>{{ d.s_end }}</td>        
+                        </tr>   
+                        </tbody>   
+                    </table>
+                    <br>
+            </div> 
+            
+            <div class="col-md-3">      
+                    <table class="data_table" border="1" cellpadding="10px" cellspacing="5px" frame="box">
+                        <thead> <tr>Time Difference (HH:MM:DD)</tr></thead>
+                        <tbody>
+                        <tr>                              
+                            <td>{{ d.diff }}</td>        
+                        </tr>
+                        
+                        </tbody>   
+                    </table>
+                    <br>
+            </div> 
+            
+        </div>
+        <br>
+        <br>
+        {% endfor %}
+</div>
+
+
+<script>
+/*$(document).ready(function() {
+    $('.data_table').each(function(){
+        $(this).DataTable();
+
+    });    
+*/
+    
+} );
+
+
+</script>
+
+
 
 {% endblock %}

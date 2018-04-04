@@ -25,26 +25,49 @@ def compute():
 
     date_format = "%Y-%m-%d %H:%M:%S"
 
+    difference = []
+
     # Loop in all the above list 
     # All the above list has same length
     for index in range(len(device_start_dates)):
-        d_start_obj = dt.strptime(device_start_dates[index],date_format)
-        d_end_obj = dt.strptime(device_end_dates[index], date_format)
+        d_start = device_start_dates[index]
+        d_end = device_end_dates[index]
+        s_start = stop_watch_starts[index]
+        s_end = stop_watch_ends[index]
+
+        each_node = {}
+        d_start_obj = dt.strptime(d_start,date_format)
+        d_end_obj = dt.strptime(d_end, date_format)
         
         timedelta = d_end_obj - d_start_obj
-        print("For Device ",timedelta)
+        # print("For Device ",timedelta)
 
         d_diff = timedelta.total_seconds()
 
-        s_start_obj = dt.strptime(stop_watch_starts[index],date_format)
-        s_end_obj = dt.strptime(stop_watch_ends[index], date_format)
+        s_start_obj = dt.strptime(s_start,date_format)
+        s_end_obj = dt.strptime(s_end, date_format)
         timedelta = s_end_obj - s_start_obj
-        print("For StopWatch ", timedelta)
+        # print("For StopWatch ", timedelta)
+
         s_diff = timedelta.total_seconds()
 
         # Total Difference between the StopWatch and Device Time
-        total_diff = s_diff - d_diff
+        if s_diff > d_diff:
+            total_diff = s_diff - d_diff
+        else:
+            total_diff = d_diff - s_diff
 
-        print("For Device {0}, the time difference is {1}".format(index, str(datetime.timedelta(seconds=total_diff))))
+        each_node['name'] = "Device "+ str(index+1)
+        each_node['diff'] = str(datetime.timedelta(seconds=total_diff))
+        each_node['d_start'] = d_start
+        each_node['d_end'] = d_end
+        each_node['s_start'] = s_start
+        each_node['s_end'] = s_end
+
+        print("For {0}, the time difference is {1}".format(each_node['name'],each_node['diff'] ))
+        difference.append(each_node)
+
     
-    return render_template('thanks.html')
+    return render_template('thanks.html',
+                            diff =difference,                            
+                            )
