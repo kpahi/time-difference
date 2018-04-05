@@ -8,12 +8,14 @@ script:
 # run:
 #   "python application.py"
 deploy:
-  - provider: heroku
-  - api_key:
-      secure: gsbB9OdJBSC1jggYkFDYUCw1244M9SUYkx4MlP1JvK0TRD4ma5Es5dG9XpA7wdJP8mj1qxOwE+VwSFO6bOLklncDSiM3y3bMznnRGR4AuGLhjU8g+y3MTLysBEU1VUQbrJSI3/wePennaMnEn76cTi62l0bvDoc54w+Kt9w6U59k+Ij/vyI8nfHD8lYXXpXICoWlDSJfDGpE/5HyPfkwxfa6tai/9bM6MbimGOaNvlr+04Ob0/ttdA02E+Bqi/Hu3q4jQp9deHkbCjbbvA9wMRiAgAssG/1FpPlZcRVp94j0Wgvx8MJcY1/V3ya5EP1bcYyQWz+e1hqcGmDiVNAVavt/oEmpHgmSQ4u5H+gdhka+O8b8d/lzyW27YfbTb/rDwOiPf+Di5Z4Ylb9koaNwKb+aCXutsxiBeZ2Qn2NUa+SUfRToKhd2x5AgLw12dXI3NdjbRYI+qoGvyMy3LlDtRAJnh78yCtkzVZU4YeVnnJ34rCinGeb/QHZ0lzcCtsciTGyzFjs38tVNZcoVlbjkZTJymooriQ7ivEggw63K9Sfc4E9c+vzm9OoGQ9za1b6H1w4as8nn9/I072530QDzOnNEeVPrrqu/wU8QgrIGeF+nV/5aUdU7R3QxlK9vCMDMz82WE85SPD2/JQUozm1un1QvoXAnovY3QwcI1nRIpoU=
-  - app: timediference
-      - on: 
-          - branch: master
+  provider: heroku
+  api_key:
+    secure: rEH5jl4ArqtP8UT3w7OkimczKjYBjDn/WXPN3l0Q/nC2HaW+G8iORAj2rI1FgrBaO302YxBTiNBmyY1hU+0M0Yq3UaxlJxDlfndE2XdChdfWsnxVBK9dxJIzC5hNIkz7/ajftonZO5/d0w5Y+NwJIXO4XEyrqKn/RjAzoRwjOZcNV8HFToVUm8fqe7JNp+wDaknpaZVhdUvbfVc8MU+XvubbVUAIJrpYdGNxNjAs+yh4OQWk8KD3SCg+N9YJuZcGmmQ6Iqds9+ih2rDxFcJ8sb2rfLdYHDmUCatxYDUrqxZ5g1Fn9+NNqT4761RNUje3zzZm1qYq9XfEsmNFzbsfdwBoYSY37YM+pjP2fxTi3NknTWpDhN86OpAgNeP6eM+JCOLBmb/8Ex28AtFmP4b8Vafgl34z3bnTW6MejmPoH07pR46tHoBEecuax9/pc6zLMACeWthzWlNBDxZtR+9uGuTun+aLkmSVHKIuLJwtrCk4zxYaq2g7q0R/8MRqgq0juB0MssU4Ow4HIMOuFLHwqjjRQan6D6bdhbcof/5xAFgXZpqoGjJOmKGjPjk00WiINSSyvQnOE5TuI03ebXplqrlyACzWLAVR1zXtv1abLw3fBfP7SO+OvqKHD9g5dIDw6NGO8BY5QB95mwhnR+Dfl8lv11RjXoonrTwV+3v3uH0=
+    
+    # secure: gsbB9OdJBSC1jggYkFDYUCw1244M9SUYkx4MlP1JvK0TRD4ma5Es5dG9XpA7wdJP8mj1qxOwE+VwSFO6bOLklncDSiM3y3bMznnRGR4AuGLhjU8g+y3MTLysBEU1VUQbrJSI3/wePennaMnEn76cTi62l0bvDoc54w+Kt9w6U59k+Ij/vyI8nfHD8lYXXpXICoWlDSJfDGpE/5HyPfkwxfa6tai/9bM6MbimGOaNvlr+04Ob0/ttdA02E+Bqi/Hu3q4jQp9deHkbCjbbvA9wMRiAgAssG/1FpPlZcRVp94j0Wgvx8MJcY1/V3ya5EP1bcYyQWz+e1hqcGmDiVNAVavt/oEmpHgmSQ4u5H+gdhka+O8b8d/lzyW27YfbTb/rDwOiPf+Di5Z4Ylb9koaNwKb+aCXutsxiBeZ2Qn2NUa+SUfRToKhd2x5AgLw12dXI3NdjbRYI+qoGvyMy3LlDtRAJnh78yCtkzVZU4YeVnnJ34rCinGeb/QHZ0lzcCtsciTGyzFjs38tVNZcoVlbjkZTJymooriQ7ivEggw63K9Sfc4E9c+vzm9OoGQ9za1b6H1w4as8nn9/I072530QDzOnNEeVPrrqu/wU8QgrIGeF+nV/5aUdU7R3QxlK9vCMDMz82WE85SPD2/JQUozm1un1QvoXAnovY3QwcI1nRIpoU=
+  app: timediference
+      # - on: 
+      #     - branch: master
   # after_deploy:
   # - ./run.sh
 
