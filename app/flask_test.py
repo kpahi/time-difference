@@ -19,10 +19,6 @@ class FlaskrTestCase(unittest.TestCase):
         timedelta = d_end_obj - d_start_obj
         self.assertEquals(timedelta.total_seconds(),float(11.0))
 
-        
-        
-
-    
-
+      
 if __name__ == '__main__':
     unittest.main()
