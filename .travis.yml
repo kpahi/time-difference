@@ -5,12 +5,12 @@ install:
   - pip install -r requirements.txt
 script: 
   python app/flask_test.py
-run:
-  "python application.py"
+# run:
+#   "python application.py"
 deploy:
   provider: heroku
   api_key:
-    secure: "gsbB9OdJBSC1jggYkFDYUCw1244M9SUYkx4MlP1JvK0TRD4ma5Es5dG9XpA7wdJP8mj1qxOwE+VwSFO6bOLklncDSiM3y3bMznnRGR4AuGLhjU8g+y3MTLysBEU1VUQbrJSI3/wePennaMnEn76cTi62l0bvDoc54w+Kt9w6U59k+Ij/vyI8nfHD8lYXXpXICoWlDSJfDGpE/5HyPfkwxfa6tai/9bM6MbimGOaNvlr+04Ob0/ttdA02E+Bqi/Hu3q4jQp9deHkbCjbbvA9wMRiAgAssG/1FpPlZcRVp94j0Wgvx8MJcY1/V3ya5EP1bcYyQWz+e1hqcGmDiVNAVavt/oEmpHgmSQ4u5H+gdhka+O8b8d/lzyW27YfbTb/rDwOiPf+Di5Z4Ylb9koaNwKb+aCXutsxiBeZ2Qn2NUa+SUfRToKhd2x5AgLw12dXI3NdjbRYI+qoGvyMy3LlDtRAJnh78yCtkzVZU4YeVnnJ34rCinGeb/QHZ0lzcCtsciTGyzFjs38tVNZcoVlbjkZTJymooriQ7ivEggw63K9Sfc4E9c+vzm9OoGQ9za1b6H1w4as8nn9/I072530QDzOnNEeVPrrqu/wU8QgrIGeF+nV/5aUdU7R3QxlK9vCMDMz82WE85SPD2/JQUozm1un1QvoXAnovY3QwcI1nRIpoU="
+    secure: gsbB9OdJBSC1jggYkFDYUCw1244M9SUYkx4MlP1JvK0TRD4ma5Es5dG9XpA7wdJP8mj1qxOwE+VwSFO6bOLklncDSiM3y3bMznnRGR4AuGLhjU8g+y3MTLysBEU1VUQbrJSI3/wePennaMnEn76cTi62l0bvDoc54w+Kt9w6U59k+Ij/vyI8nfHD8lYXXpXICoWlDSJfDGpE/5HyPfkwxfa6tai/9bM6MbimGOaNvlr+04Ob0/ttdA02E+Bqi/Hu3q4jQp9deHkbCjbbvA9wMRiAgAssG/1FpPlZcRVp94j0Wgvx8MJcY1/V3ya5EP1bcYyQWz+e1hqcGmDiVNAVavt/oEmpHgmSQ4u5H+gdhka+O8b8d/lzyW27YfbTb/rDwOiPf+Di5Z4Ylb9koaNwKb+aCXutsxiBeZ2Qn2NUa+SUfRToKhd2x5AgLw12dXI3NdjbRYI+qoGvyMy3LlDtRAJnh78yCtkzVZU4YeVnnJ34rCinGeb/QHZ0lzcCtsciTGyzFjs38tVNZcoVlbjkZTJymooriQ7ivEggw63K9Sfc4E9c+vzm9OoGQ9za1b6H1w4as8nn9/I072530QDzOnNEeVPrrqu/wU8QgrIGeF+nV/5aUdU7R3QxlK9vCMDMz82WE85SPD2/JQUozm1un1QvoXAnovY3QwcI1nRIpoU=
   on: 
     branch: master
   # after_deploy:
