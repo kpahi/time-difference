@@ -64,7 +64,7 @@ $(document).ready(function() {
         // moment().format('YYYY-MM-DD HH:mm:ss');
         $('.datetimepicker4').each(function(){
             $(this).datetimepicker({
-                format : "YYYY-MM-DD HH:mm:ss",
+                format : "YYYY-MM-DD hh:MM:SS",
             });
         });       
     }
@@ -88,8 +88,9 @@ $(document).ready(function() {
         newTextBoxDiv.after().html(insert_row.html());
         
         newTextBoxDiv.appendTo("#TextBoxesGroup");
+        
+        $(newTextBoxDiv).find('.number').html(counter);
 
-        $('.number').html(counter);
 
         counter++;
 
